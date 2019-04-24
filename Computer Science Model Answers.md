@@ -4,7 +4,7 @@
 
 * **Compiler:** 
   * The software reads the source code and reports all errors. 
-  * The software produces and executable file. 
+  * The software produces an executable file. 
   * The software translates a high-level language program into machine code for the processor to execute.
 * **Assembler:** 
   * The software translates low-level statements into machine code for the processor to execute.
@@ -125,7 +125,7 @@
     * Provided by ISP
     * Unique to the Internet
   * Private:
-    * Can only be reached enterally/through the Lan - cannot be reached across the internet.
+    * Can only be reached interally/through the Lan - cannot be reached across the internet.
     * Network Address Translation is necessary for a private IP to access the Internet directly.
     * More secure tan a public address
     * Assigned by the router.
@@ -199,6 +199,52 @@
   * Fields can be added or removed without any effect on existing programs (that do not use these fields)
   * Security/privacy of the data is improved as each application only has access to the fields it needs.
   * There is better control of data integrity as the DBMS uses its Data Dictionary to perform validation checks on data entered.
+* **SQL Commands**
+  * ```sql
+    CREATE DATABASE databasename
+
+    CREATE TABLE tablename (
+      column1name column1type,
+      colmun2name column2type
+    );
+
+    ALTER TABLE tablename
+    ADD columnname columntype;
+
+    ALTER TABLE tablename
+    DROP columnname columntype;
+
+    ALTER TABLE tablename
+    MODIFY columnname newcolumntype;
+
+    SELECT something
+    FROM sometable
+    ORDER BY column ASC; -- use DESC for descending order
+
+    SELECT SUM(columnname)
+    FROM sometable
+    GROUP BY othercolumnname;
+
+    SELECT table1.columnname, table2.columnname
+    FROM table1
+    INNER JOIN table2
+    ON table1.othercolumnname = table2.othercolumnname;
+
+    -- Two ways of doing INSERT INTO
+    -- If you are only entering values for some columns
+    INSERT INTO tablename (column1 column2)
+    VALUES (value1, value2);
+
+    -- If you are entering values for all columns
+    INSERT INTO tablename
+    VALUES (value1, value2, value3);
+
+    DELETE FROM tablename WHERE somecondition = somevalue;
+
+    UPDATE tablename
+    SET columname = value
+    WHERE somecondition = somevalue;
+    ```
 
 ## Security
 
