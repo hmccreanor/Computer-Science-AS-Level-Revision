@@ -2,21 +2,18 @@
 
 ## System Software
 
-### Definitions
-
 * **Compiler:** 
   * The software reads the source code and reports all errors. 
   * The software produces and executable file. 
   * The software translates a high-level language program into machine code for the processor to execute.
-* **Assembler:** The software translates low-level statements into machine code for the processor to execute.
+* **Assembler:** 
+  * The software translates low-level statements into machine code for the processor to execute.
 * **Interpreter:** 
   * The software reads each statement and checks it before running it. 
   * The software halts when it encounters a syntax error. 
   * The software translates a high-level language program into machine code for the processor to execute.
 
 ## Processor Fundamentals
-
-### Definitions
 
 * **Describe how special purpose registers are used in the fetch-execute cycle:**
   * The Program Counter (PC) holds the address of the next instruction to be fetched.
@@ -34,12 +31,26 @@
 
 ## Information Representation
 
-### Definitions
-
 * **Describe how sampling is used to record sound clips:**
   * The height/amplitude of the sound wave is determined at set time intervals to get an approximation of the sound wave.
   * This is encoded as a sequence of binary numbers.
   * Increasing the sampling rate will improve the accuracy of the recording.
+* **Define Sampling Rate**:
+  * Number of samples taken per unit time - number of times the amplitude is measured per unit time.
+  * Increasing the sampling rate will increase the accuracy/precision of the digitized sound - result in smaller quantization errors.
+* **Define Pixel**
+  * Smallest picture element which can be drawn.
+* **Define Screen Resolution**
+  * The number of pixels which can be viewed horizontally and vertically on the screen
+  * A typical screen resolution is 1920 by 1080 pixels
+* **Give examples of image file headers**
+  * File type
+  * File size
+  * Location/offset of image data within the file
+  * Dimensions of the image in pixels
+  * Color depth (bits per pixel)
+  * Type of compression used, if any
+
 * **Explain and justify the use of the different types of compression:**
   * Lossy
     * Makes a decision about what parts of the image are important and then discard certain information.
@@ -65,16 +76,153 @@
     * The other value is the code of the character/color code of pixel etc. in the run (the run value).
     * The run value and run count combination may be preceded by a control character.
   * Give a valid example.
+* **Explain how a parity check can be used to detect a possible error in a transmitted byte**
+  * Type of parity (odd/even) is agreed by both devices concerned with the communication
+  * Transmitting device counts the number of 1 bits in the byte
+  * One bit is reserved for parity bit
+  * This parity bit is set to 1 or 0 in order to make the number of 1s in the byte an odd or even number dependent on what type of parity is used
+  * Receiving device on receipt of byte counts number of 1s
+  * If the number is not odd/even (the parity agreed upon), an error has occurred.
+* **Explain how the computer uses the parity byte to perform a check on the received data bytes**
+  * The parity bit is worked out for each column
+  * The computer checks the parity of each bit position in the parity byte
+  * If incorrect parity, then an error occurred
+  * Position of the incorrect bit can be determined, using the bytes as a 2D grid:
+    * Consider each row in sequence
+    * Identify any row with incorrect parity
+    * Repeat the process for each column in sequence
+    * Identify where a row and column with incorrect parity intersect
 
 ## Ethics and Ownership
-
-### Definitions
 
 * **Types of software:**
   * Opensource
     * Source code comes with the software
     * The software can be modified by the user
+    * Software is free
+  * Freeware
+    * Software is free
+    * Source code not distributed
   * Shareware
     * Software is provided free on a trial basis
   * Commerical
     * Software is purchased before it can be used
+    * A fee is paid for each individual copy of the software - or, a company might have the option of buying a site license which allows a defined number of copies to be running at any one time.
+    * Special rates may be available for educational use.
+    * Earlier/limited versions may be offered for free or at reduced price.
+
+## Networks
+
+* **IP**
+  * General:
+    * Internet Protocol
+    * 32-bit format
+    * Four numbers from 0 to 255 separated by dots
+    * Give example - 10.0.0.1
+  * Public:
+    * Can be reached across the Internet
+    * Less secure than private address
+    * Provided by ISP
+    * Unique to the Internet
+  * Private:
+    * Can only be reached enterally/through the Lan - cannot be reached across the internet.
+    * Network Address Translation is necessary for a private IP to access the Internet directly.
+    * More secure tan a public address
+    * Assigned by the router.
+    * Unique within their network by can be duplicated within other discrete networks.
+    * Can be:
+      * 10.0.0.1 to 10.255.255.254
+      * 172.16.0.1 to 172.31.255.254
+      * 192.168.0.1 to 192.168.255.254
+    * IP addresses from the private address space are never assigned as public.
+* **DNS**
+  * Domain Name Server
+  * URL - refence address to a resource on the Internet
+  * URL passed to nearest Domain Name Server by browser
+  * DNS stores a database/list of URLs and IP addresses
+  * DNS looks for URL in its database
+  * Finds the matching IP and returns it to its originator
+  * Or, if it can't find it, it forwards to another Domain Name Server at a higher level
+  * Original DNS server adds the returned IP address to its cache
+  * Original DNS server returns the IP address to the browser
+* **Describe the difference between real-time and on-demand streaming**
+  * Real time
+    * Life stream of event taking place
+    * Event is captured live with a video camera connected to computer
+    * Cannot be paused/rewound
+  * On demand
+    * Streaming of event/program that has taken place in the past
+    * Existing media are encoded to bit streaming format and uploaded to a server
+    * Can be paused/rewound/fast forwarded
+* **Explain the difference between the World Wide Web and the Internet**
+  * WWW is a collection of interlinked, hyper text documents/webpages/multimedia resources accessed via the internet
+  * Internet is the global connection of interconnected computer networks
+  * Internet uses TCP/IP protocol/WWW uses http protocols to transmit data
+
+## Databases
+
+* **DBMS**
+  * Database Management System
+* **How can a Database Admin use the DBMS software to ensure the security of student data:**
+  * Issue usernames and passwords
+    * This stops unauthorized access to the data
+    * Making sure the passwords are strong and changed regularly
+  * Access rights/privileges
+    * Only relevant staff can read/edit certain parts of the data
+    * Can be read/write/delete
+    * Give example
+  * Create regular backups
+    * A copy of the data is available in case of loss/damage
+    * Give example
+  * Encryption of data
+    * Means that even if there is unauthorized access to the data, it cannot be understood
+    * Give example
+  * Definition of different views
+    * Composed of one or more tables
+    * Controls the scope of the data accessible to authorized users
+    * Give example
+  * Usage monitoring/logging activity
+    * Creates an audit/activity log
+    * Records the use of the data in the database
+    * Give example
+* **Describe how a standard user might use a query processor for the DBMS**
+  * Set up search criteria to find/retrieve the data that matches the criteria
+  * Give example
+* **Describe how using a relational database has overcome the previous problems associated with a file-based approach**
+  * By storing data in separate linked tables data redundancy is reduced
+  * Compatibility/data integrity issues are reduced as data only needs to be updated once
+  * Unwanted or accidental deletion of linked data is prevented as the DBMS will flag an error
+  * Program - Data dependence is overcome
+  * Changes made to the structure of the data have little effect on existing programs
+  * Ad-hoc /complex queries can be more easily made as the DBMS will have a query language/QBE form
+  * Unproductive maintenance is eliminated as changes only need to be made once
+  * Fields can be added or removed without any effect on existing programs (that do not use these fields)
+  * Security/privacy of the data is improved as each application only has access to the fields it needs.
+  * There is better control of data integrity as the DBMS uses its Data Dictionary to perform validation checks on data entered.
+
+## Security
+
+* **Describe the difference between security and integrity of data**
+  * Security
+    * Keeping data safe
+    * Preventing data loss
+    * e.g. usernames/passwords/firewalls
+  * Integrity
+    * Making sure that data is correct/valid
+    * Ensures that the data received is the same as the data sent/data copied is the same as original
+    * e.g. parity checks/double entry
+* **Describe security measures you can take to protect a computer network**
+  * Installing a firewall and ensuring it is switched on
+    * Stops unauthorized access/hackers gaining access
+  * Use authentication methods such as passwords and usernames
+    * Passwords should be strong/biometrics
+  * Encrypt the data
+    * If data is accessed it will be meaningless unless you have the decryption key
+  * Set up access rights
+    * To stop users reading/editing data that they shouldn't
+  * Installing and running an up to dat anti-malware program
+    * To detect/remove/quarantine viruses/key-loggers etc.
+  * Make regular backups of the data
+    * To separate device or off site to enable recovery if necessary
+  * Employ measures for physical security
+    * Example of a measure for physical security
