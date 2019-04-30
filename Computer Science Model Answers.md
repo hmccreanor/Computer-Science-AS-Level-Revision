@@ -226,3 +226,16 @@
     * To separate device or off site to enable recovery if necessary
   * Employ measures for physical security
     * Example of a measure for physical security
+
+## Hardware
+
+* How does a laser jet printer work?
+  * The drum is given an electric charge
+  * The drum starts to revolve step by step
+  * At each step a laser beam is directed by the mirror and lens assembly to a sequence of positions across the width of the drum
+  * At each position the laser is either switch off to leave the charge on the drum or switched on to discharge the position
+  * This process repeats until a full page electrostatic image has been created
+  * The drum is coated with a charged toner which only sticks to positions where the drum has been discharged
+  * The drum rolls over a sheet of paper which is initially given an electric charge
+  * The sheet of paper is discharged and then is passed through heated rollers to fuse the toner particles and seal the image on the paper surface
+  * The drum is discharged before the process starts again for the next page
